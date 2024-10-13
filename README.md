@@ -1,5 +1,7 @@
 # Exploring A*
 
+![AStar](AStar.gif)
+
 A* is one of the most well-known pathfinding algorithms. No matter what type of pathfinding method you use—such as Theta*, Dijkstra’s algorithm, or Jump Point Search—there’s a good chance that some variation of the A* algorithm is involved. In here, we will discuss pathfinding in general, highlight important considerations, and conclude with a simple A* implementation. Stay with me!
 
 ---
