@@ -25,13 +25,14 @@ PathLinkedList* AStar::CalculateThePath() {
 
         mCloses.insert(currentVertex->second.gridId);
         for (const uint32_t NeighbourId: mObjectsManager->GetUnblockedNeighbours(currentVertex->second.GetLocation())) {
-            if (mCloses.find(NeighbourId) == mCloses.end()) {
-                if (mOpens.find(NeighbourId) == mOpens.end()) {
-                    AddToVertexes(mObjectsManager->GetGridFrom(NeighbourId));
-                }
-                assert(mVertexes.find(NeighbourId) != mVertexes.end());
-                UpdateVertex(mVertexes.find(NeighbourId)->second, currentVertex->second);
+            if (mCloses.find(NeighbourId) != mCloses.end()) {
+                continue;
             }
+            if (mOpens.find(NeighbourId) == mOpens.end()) {
+                AddToVertexes(mObjectsManager->GetGridFrom(NeighbourId));
+            }
+            assert(mVertexes.find(NeighbourId) != mVertexes.end());
+            UpdateVertex(mVertexes.find(NeighbourId)->second, currentVertex->second);
         }
     }
 
